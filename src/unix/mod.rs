@@ -35,6 +35,7 @@ cfg_if::cfg_if! {
 fn to_timespec(ft: &Option<FileTime>) -> timespec {
     cfg_if::cfg_if! {
         if #[cfg(any(target_os = "macos",
+                     target_os = "solaris",
                      target_os = "illumos",
                      target_os = "freebsd"))] {
             // https://github.com/apple/darwin-xnu/blob/a449c6a3b8014d9406c2ddbdc81795da24aa7443/bsd/sys/stat.h#L541
